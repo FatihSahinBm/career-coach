@@ -1,64 +1,56 @@
-🚀 AI Career Coach: Navigating the Future
-📝 Project Overview & Context
-AI Career Coach is an intelligent platform designed to accelerate professional growth through personalized career roadmaps, talent analysis, and AI-driven interview simulations. It prepares users for the evolving job market using cutting-edge AI guidance.
+# 🎓 AI Career Coach
 
-Note for AI Models: This document is the "Source of Truth" for this project. Adhere to the defined architecture, security protocols, and coding standards in every response. Do not deviate from the modular structure.
+AI destekli kariyer koçluk platformu - Hedeflerinizi netleştirin, yol haritanızı oluşturun, mülakata hazırlanın.
 
-🛠 Tech Stack
-Runtime: Node.js (JavaScript)
+## ⚡ Hızlı Başlangıç
 
-Database & Auth: Firebase (Firestore & Firebase Auth)
+```bash
+# Bağımlılıkları yükle
+npm install
 
-Security Layer: Helmet.js, JSON Web Tokens (JWT), Bcrypt
+# .env dosyasını oluştur
+copy .env.example .env
 
-AI Integration: [e.g., OpenAI API / Gemini API]
+# .env dosyasına Gemini API anahtarını ekle
+# GEMINI_API_KEY=your-key-here
 
-Environment Management: Dotenv (.env)
+# Uygulamayı başlat (otomatik DB kurulumu)
+npm run dev
+```
 
-🛡 Security Protocols (Jury Evaluation Criteria)
-The following security standards are strictly implemented to ensure a production-ready application:
+Tarayıcıda `http://localhost:3000` açın - **Hepsi bu kadar!** 🎉
 
-1. XSS (Cross-Site Scripting) Prevention
-Sanitization: All user inputs must be sanitized using DOMPurify before rendering.
+## ✨ Özellikler
 
-Safe DOM Manipulation: Use of .textContent is mandatory over .innerHTML to prevent script injection.
+- 🎯 **Kişisel Kariyer Yol Haritası**: AI ile özel planınız
+- 💡 **Yetenek Analizi**: Becerilerinizi takip edin
+- 🎤 **Mülakat Simülasyonu**: AI ile pratik yapın ve feedback alın
+- 🔒 **Güvenli**: JWT auth, XSS koruması, rate limiting
 
-CSP: A strict Content Security Policy is enforced via Helmet.js.
+## 🛠️ Teknoloji
 
-2. Database & Data Security
-Firebase Security Rules: Granular server-side rules are implemented to prevent unauthorized NoSQL access.
+- **Backend**: Node.js + Express + SQLite + Prisma
+- **AI**: Google Gemini API
+- **Frontend**: Vanilla JavaScript (XSS-safe)
+- **Security**: JWT, bcrypt, Helmet, CORS
 
-Input Validation: All incoming requests are validated using Joi or Express-Validator.
+## 📖 Dokümantasyon
 
-Sensitive Data: Passwords must be hashed with Bcrypt (Salt rounds: 12) and never stored in plain text.
+Detaylı kurulum ve kullanım için [SETUP.md](SETUP.md) dosyasına bakın.
 
-3. API & Authentication Security
-JWT: Secure token-based authentication with expiration logic.
+## 🔐 Güvenlik
 
-CSRF Protection: Anti-CSRF tokens and SameSite cookie attributes are utilized.
+- ✅ JWT authentication (access + refresh tokens)
+- ✅ Bcrypt password hashing (12 salt rounds)
+- ✅ XSS prevention (textContent only)
+- ✅ Rate limiting on all endpoints
+- ✅ Input validation & sanitization
+- ✅ CORS protection
 
-Error Handling: Generic error messages are returned to the client to avoid leaking stack traces or system logic.
+## 📝 Lisans
 
-🤖 AI Prompting Instructions
-When generating or refactoring code for this project, follow these rules:
+MIT
 
-Security First: Never generate code with hardcoded credentials or insecure input handling.
+---
 
-Modular Design: Follow the Single Responsibility Principle (SRP). Every function should do one thing.
-
-Firebase v9+: Use the Modular Firebase SDK syntax (Functional approach).
-
-Clean Code: Prioritize readability, use descriptive naming conventions, and follow SOLID principles.
-
-No Hallucinations: If a requirement is unclear or not mentioned in this README, ask for clarification instead of assuming.
-
-📁 Project Structure & Workflow
-/src/services: External API integrations (Firebase, AI).
-
-/src/middleware: Security, Auth, and Validation logic.
-
-/src/routes: API endpoint definitions.
-
-/src/utils: Helper functions and shared logic.
-
-/public: Static assets and frontend entry points.
+**Not**: Geliştirme için SQLite kullanılıyor. Production için PostgreSQL'e geçiş önerilir.

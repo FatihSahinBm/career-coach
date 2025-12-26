@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - AI Career Coach</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo"><i class="fas fa-rocket"></i> Career Coach</div>
+        <div class="user-menu">
+            <span id="user-name">User</span>
+            <button id="logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</button>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <header class="dashboard-header">
+            <h2>Welcome back! 👋</h2>
+            <p>Track your career progress and interview skills.</p>
+        </header>
+
+        <div class="grid">
+            <!-- Career Profile Card -->
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-id-card"></i></div>
+                <h3>Career Profile</h3>
+                <p>Manage your skills and goals.</p>
+                <button class="action-btn" onclick="alert('Feature coming soon!')">Edit Profile</button>
+            </div>
+
+            <!-- Roadmap Card -->
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-map-signs"></i></div>
+                <h3>AI Roadmap</h3>
+                <p>Generate your personalized career path.</p>
+                <button class="action-btn" onclick="alert('Feature coming soon!')">Generate Roadmap</button>
+            </div>
+
+            <!-- Interview Card -->
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-comments"></i></div>
+                <h3>Interview Practice</h3>
+                <p>Simulate interviews with AI.</p>
+                <button class="action-btn" onclick="alert('Feature coming soon!')">Start Session</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+    <script>
+        // Page specific logic
+        if (!localStorage.getItem('token')) {
+            window.location.href = 'login.html';
+        } else {
+            const user = JSON.parse(localStorage.getItem('user') || '{}');
+            document.getElementById('user-name').textContent = user.name || 'User';
+        }
+    </script>
+</body>
+</html>
