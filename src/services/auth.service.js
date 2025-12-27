@@ -157,7 +157,10 @@ export async function logoutUser(refreshToken) {
 /**
  * Generate access and refresh tokens
  */
-async function generateTokens(userId) {
+/**
+ * Generate access and refresh tokens
+ */
+export async function generateTokens(userId) {
   // Generate access token
   const accessToken = jwt.sign(
     { userId },

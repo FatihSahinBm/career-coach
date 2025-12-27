@@ -20,6 +20,13 @@ router.post('/register', authLimiter, registerValidation, authController.registe
 router.post('/login', authLimiter, loginValidation, authController.login);
 
 /**
+ * @route   POST /api/auth/google
+ * @desc    Login/Register user with Google
+ * @access  Public
+ */
+router.post('/google', authController.googleLogin);
+
+/**
  * @route   POST /api/auth/refresh
  * @desc    Refresh access token
  * @access  Public

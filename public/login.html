@@ -23,6 +23,28 @@
             <button type="submit" class="submit-btn">Login</button>
         </form>
 
+        <div class="divider">
+            <span>OR</span>
+        </div>
+
+        <!-- Google Sign-In Button (HTML API) -->
+        <div id="g_id_onload"
+             data-client_id="26181784006-7qmibpaf9pjjndltvmqk3k4lovgfc9bo.apps.googleusercontent.com"
+             data-context="signin"
+             data-ux_mode="popup"
+             data-callback="handleGoogleLogin"
+             data-auto_prompt="false">
+        </div>
+
+        <div class="g_id_signin"
+             data-type="standard"
+             data-shape="rectangular"
+             data-theme="outline"
+             data-text="signin_with"
+             data-size="large"
+             data-logo_alignment="left">
+        </div>
+
         <div id="auth-message" class="message"></div>
 
         <p class="auth-link">
@@ -30,7 +52,8 @@
         </p>
     </div>
 
-    <script src="app.js"></script>
+    <script src="auth.js"></script>
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
     <script>
         // Page specific logic
         if (localStorage.getItem('token')) {
